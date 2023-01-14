@@ -1,0 +1,67 @@
+body{
+    background-image: url('/images/bg2.jpg');
+  
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+   
+}
+
+.user-sup{
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1{
+    text-align: center;
+    margin: 0%;
+    padding: 0%;
+}
+
+.user-sup form{
+    display: flex;
+    flex-direction: column;
+    /* margin-top: 30%; */
+    align-items: center;
+}
+
+.user-sup form input{
+    border-radius: 10px;
+    height: 5vh;
+    margin-top: 2%;
+    width: 60vh;
+}
+.gauth{
+    border: 2px solid black;
+    width: 25%;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0.3%;
+    border-radius: 20px;
+    background-color: white;
+    margin-top: 1%;
+}
+.gauth i{
+    color: black;
+}
+.c{
+    height: 70vh;
+    /* border: 2px solid rebeccapurple; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#g{
+    /* border: 2px solid magenta; */
+    margin-top: 5%;
+}
+#sup-btn{
+    width: 30vh;
+    background-color: grey;
+    color: wheat;
+    font-weight: 700;
+}

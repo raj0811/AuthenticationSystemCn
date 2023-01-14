@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/changepass.css">
+    <title>Document</title>
+</head>
+<body>
+    
+   
+    <div class="container">
+        <div class="change-pass">
+
+            <div class="form-conter">
+
+
+                <form action="/users/update/<%= user.id %>" method="post">
+                
+                    <span>Enter your Email</span>
+                     <input type="email" name="email"  value="<%= user.email %>">
+                     <input type="password" name="opass" placeholder="Old Password">
+                     <input type="password" name="npass" placeholder="New Password">
+                     <input type="submit" id="change-btn" value="Change">
+                     <a href="/users/forget-password">Forget password</a>
+                 </form>
+
+                <div class="fp">
+
+                </div>
+
+
+
+            </div>
+           
+
+            
+            
+        </div>
+
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="/css/header.css">
+
+
+<header>
+
+    
+
+    <nav>
+        <div class="nav-links">
+            <ul class="h-links">
+                <li class="home-h">
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="#">About Us</a>
+                </li>
+                <li>
+                    <a href="#">Contact Us</a>
+                </li>
+                <% if(locals.user){ %>
+                <li>
+                  <a href="/users/profile"> <%= user.name %></a>
+
+                </li>
+                <li><a href="/users/sign-out">Sign-out</a></li>
+                <% } else { %>
+                    <li class="signin-h"><a href="/users/sign-in">sign-in</a></li>
+                    <li class="signup-h"><a href="/users/sign-up">sign-up</a></li>
+                <% } %>
+            </ul>
+        </div>
+        
+    </nav>
+
+</header>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/sign_up.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/a18fa9a70e.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="c container">
+        <div id="g">
+
+
+            <h1>
+
+                Sign-up
+            </h1>
+
+            <div class="user-sup container">
+                <form action="/users/create" method="post">
+
+                    <input type="text" name="name" placeholder="your name" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                   
+                    <input type="submit" id="sup-btn" value="Sign Up">
+
+                </form>
+
+                <p class="gauth">
+                    <i class="fa-solid fa-g"></i>
+                    <a href="/users/auth/google">Google Sign-in/Sign-up</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        $(document).ready(function (){
+            console.log("signup");
+            $('.signup-h').addClass("active")        })
+    </script>
+</body>
+</html>

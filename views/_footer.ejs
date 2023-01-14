@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="/css/footer.css">
+
+<footer>
+   
+    <div class="div-1">
+        <h1>Issue tracker</h1>
+        <ul>
+            <li>
+                <a href="">About</a>
+            </li>
+            <li>
+                <a href="">Feedback</a>
+            </li>
+            <li>
+                <a href="">Contact-Us</a>
+            </li>
+            <li>
+                <a href="">FAQs</a>
+            </li>
+        </ul>
+    </div>
+    <div class="div-2">
+        <h1>Connect With Us</h1>
+        <ul>
+            <li>
+                <a href="">Gmail</a>
+            </li>
+            <li>
+                <a href="">Insta</a>
+            </li>
+            <li>
+                <a href="">Whatsapp</a>
+            </li>
+            <li>
+                <a href="">Call</a>
+            </li>
+        </ul>
+    </div>
+    <div class="div-3">
+        <h1>User</h1>
+        
+       <ul>
+
+        <% if(locals.user){ %>
+            <li>
+              <a href="/users/profile"> <%= user.name %></a>
+              <a href="">Log-out</a>
+
+            </li>
+            <li><a href="/users/sign-out">Sign-out</a></li>
+            <% } else { %>
+                <li><a href="/users/sign-in">sign-in</a></li>
+                <li><a href="/users/sign-up">sign-up</a></li>
+            <% } %>
+       </ul>
+        
+    </div>
+
+</footer>

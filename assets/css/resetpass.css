@@ -1,0 +1,11 @@
+.otp{
+    
+    pointer-events: none; 
+    
+}
+.cursor{
+    
+    /* cursor: default; */
+    cursor: not-allowed;
+    width: min-content;
+}
