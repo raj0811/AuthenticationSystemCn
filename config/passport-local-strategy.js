@@ -3,6 +3,33 @@ const bcrypt = require('bcrypt');
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('../models/user');
 const alertMailer = require('../mailer/testmailer');
+const UserController = require("../controllers/users_controller")
+
+
+
+// let strategy = new LocalStrategy(
+//     async function(email,password,done){
+//         let user;
+
+//         try{
+//             user=await UserController.findOneByEmai;(email);
+//             let isMatched = await bcrypt.compare(password,user.password); // check boolea value
+//             if (!isMatched || !user)  {
+//                 console.log("invalid username password");
+//                 return done(null, false)
+//             }
+
+//             console.log(email);
+//             alertMailer.loginAlert(user);
+//             return done(null, user);
+
+//         }
+//         catch(err){
+//             console.log(err);
+//         }
+//     }
+// )
+
 
 //Authentication using passport
 passport.use(new LocalStrategy({
@@ -16,14 +43,29 @@ passport.use(new LocalStrategy({
                 console.log("Eroor in finding user --> passwort");
                 return done(err);
             }
-            let isMatched = bcrypt.compare(password,user.password); // check boolea value
-            if (!isMatched) {
+            if(!email){
                 console.log("invalid username password");
                 return done(null, false)
             }
-            console.log(email);
-            alertMailer.loginAlert(user);
+            bcrypt.compare(password,user.password,(err,res)=>{
+                if (!res) {
+                    console.log("invalid username password");
+                    return done(null, false)
+                }
+                if(err){
+                    console.log(err,"error in bcrypt");
+                    return done(null, false)
+                }
+                 alertMailer.loginAlert(user);
+                 console.log(email);
+           
             return done(null, user);
+
+            }); // check boolea value
+           
+            // console.log(email);
+           
+            // return done(null, user);
         })
 
 
@@ -35,6 +77,9 @@ passport.use(new LocalStrategy({
 passport.serializeUser(function(user, done) {
     done(null, user.id);
 });
+
+
+
 
 // deserialise the user from the key in the cookies
 passport.deserializeUser(function(id, done) {
@@ -50,10 +95,15 @@ passport.deserializeUser(function(id, done) {
 // check auth
 passport.checkAuthentication = function(req, res, next) {
     if (req.isAuthenticated()) {
+
+        console.log("authenticated.....");
         return next();
     }
     //if not sign in
-    return res.redirect('/users/sign-in');
+    // req.flash('success','incorrect credentials');
+    console.log("not authenticated");
+    // return res.redirect('/users/sign-in');
+    return res.render('user_sign_in')
 }
 passport.setAuthenticatedUser = function(req, res, next) {
     if (req.isAuthenticated()) {

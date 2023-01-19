@@ -7,7 +7,7 @@ const sendOtop=require('../mailer/resetpasswordmailer')
 
 module.exports.profile = function(req, res) {
     return res.render('profile', {
-        title: "user profile"
+        title: "Profile"
     })
 }
 
@@ -104,7 +104,9 @@ module.exports.destroySession = function (req, res) {
 }
 
 module.exports.changePassword = function(req,res){
-    return res.render('changepass')
+    return res.render('changepass',{
+        title: 'Change Password'
+    })
 }
 
 module.exports.updatePassword = async function(req,res){
@@ -117,7 +119,10 @@ module.exports.updatePassword = async function(req,res){
         }
         else{
             if(req.user.email == req.body.email && req.body.opass){
-                let isMatched= bcrypt.compare(req.body.opass,user.password);
+                let isMatched= await bcrypt.compare(req.body.opass,user.password);
+                console.log(isMatched);
+                console.log(req.body.opass);
+                console.log(user.password);
                 if(!isMatched){
                     console.log("Invalid Password ");
 
@@ -168,7 +173,9 @@ catch(err){
 
 // render forget password page
 module.exports.forgetPassword = function(req,res){
-    return res.render('forgetpassword');
+    return res.render('forgetpassword',{
+        title: "ForgetPassword"
+    });
     // return res.render('changepass');
 }
 

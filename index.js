@@ -6,6 +6,8 @@ var expressLayouts = require('express-ejs-layouts');
 const port = 8003;
 
 
+
+
 const db=require('./config/mongoose');
 const session = require('express-session');
 const passport = require('passport');
@@ -22,7 +24,7 @@ const bodyParser = require('body-parser');
 const app= express();
 app.use(express.static('assets'));
 
-
+// passport.use(strategy);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(express.urlencoded({ extended: true }));

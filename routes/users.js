@@ -11,7 +11,7 @@ router.post('/create',usersController.create);
 
 
 router.post('/create-session', passport.authenticate(
-    'local', { failureRedirect: '/user/sign-in' }
+    'local', { failureRedirect: '/users/sign-in' }
 ), usersController.createSession);
 
 
@@ -19,8 +19,8 @@ router.get('/sign-out',usersController.destroySession);
 
 router.get('/auth/google', passport.authenticate('google', {scope: ['profile','email']}));
 router.get('/auth/google/callback', passport.authenticate('google', {failureRedirect: 'users/sign-in'}), usersController.createSession);
-router.get('/changepass',usersController.changePassword);
-router.post('/update/:id',usersController.updatePassword);
+router.get('/changepass',passport.checkAuthentication,usersController.changePassword);
+router.post('/update/:id',passport.checkAuthentication,usersController.updatePassword);
 router.get('/forget-password',usersController.forgetPassword);
 router.get('/randomNumber',usersController.randomNum)
 router.get('/confirmpassword',usersController.confirmPassword)
