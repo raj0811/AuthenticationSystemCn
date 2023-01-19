@@ -72,6 +72,8 @@ app.use(customMware.setFlash)
 // extract style and script from subpages to layout
 app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);
+
+
 app.use('/', require('./routes'));
 
 app.listen(port, function(err) {
