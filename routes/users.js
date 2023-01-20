@@ -22,7 +22,7 @@ router.get('/auth/google/callback', passport.authenticate('google', {failureRedi
 router.get('/changepass',passport.checkAuthentication,usersController.changePassword);
 router.post('/update/:id',passport.checkAuthentication,usersController.updatePassword);
 router.get('/forget-password',usersController.forgetPassword);
-router.get('/randomNumber',usersController.randomNum)
+router.get('/randomNumber/:id',usersController.randomNum)
 router.get('/confirmpassword',usersController.confirmPassword)
 
 module.exports = router;

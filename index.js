@@ -1,5 +1,3 @@
-
-
 const express=require('express');       
 const cookieParser = require('cookie-parser');
 var expressLayouts = require('express-ejs-layouts');   
@@ -49,7 +47,7 @@ app.use(session({
     },
     store: MongoStore.create({
 
-        mongoUrl: 'mongodb+srv://raj:04jxFnDAdZh4uc29@cluster0.coznxd0.mongodb.net/?retryWrites=true&w=majority',
+        mongoUrl: 'mongodb+srv://raj:raj0811@cluster0.xpjnzpo.mongodb.net/?retryWrites=true&w=majority',
         autoRemove: 'disabled'
 
     },

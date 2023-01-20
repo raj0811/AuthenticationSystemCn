@@ -185,10 +185,16 @@ module.exports.forgetPassword = function(req,res){
 
 module.exports.randomNum = async function(req,res){
 
+    const email = await req.body.email;
+
     try{
        
 
+
     const user = await User.findById(req.params.id);
+    // const user = await User.findOne({
+    //     email
+    // });
 
 
     // var max=9999;
@@ -215,6 +221,8 @@ module.exports.randomNum = async function(req,res){
     var name = req.user.name
     console.log(req.user.name);
         resetMailer.resetMail(k,mail,name)
+
+        console.log(req.params.id,"save");
        
 
         // console.log(k);
