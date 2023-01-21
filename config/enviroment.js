@@ -7,8 +7,8 @@ const devlopment={
         port: 587,
         secure: false,
         auth:{
-            user: 'rpbarmaiya@gmail.com',
-            pass: 'nwmvmthofdpgnsev'
+             user: 'mrunknown.0086@gmail.com',
+            pass: 'isnytfcymvjabomg'
         }
     },
 
