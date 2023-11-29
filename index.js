@@ -1,4 +1,5 @@
 const express=require('express');       
+require('dotenv').config();
 const cookieParser = require('cookie-parser');
 var expressLayouts = require('express-ejs-layouts');   
 const port = 8003;
@@ -47,7 +48,7 @@ app.use(session({
     },
     store: MongoStore.create({
 
-        mongoUrl: 'mongodb+srv://raj:raj0811@cluster0.xpjnzpo.mongodb.net/?retryWrites=true&w=majority',
+        mongoUrl: process.env.DB_URL,
         autoRemove: 'disabled'
 
     },

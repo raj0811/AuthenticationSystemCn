@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
-// mongoose.connect('mongodb://localhost/auth_db');
+mongoose.connect(process.env.DB_URL);
+// 
 
-
-mongoose.connect('mongodb+srv://raj:raj0811@cluster0.xpjnzpo.mongodb.net/?retryWrites=true&w=majority');
+// mongoose.connect('mongodb+srv://raj:raj0811@cluster0.xpjnzpo.mongodb.net/?retryWrites=true&w=majority');
 
 
 //accuire the connectiontion
